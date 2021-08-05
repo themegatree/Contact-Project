@@ -1,4 +1,12 @@
+const models = require("../../models")
+require('dotenv').config
+
 describe('Main Tests',() => {
+    beforeEach(() => {
+        async ()=> {
+            await models.Contacts.destroy({truncate: true})
+        }
+    })
     it('Adding a contact', () => {
         cy.visit('/contacts')
         cy.get('#nameInput').type('Mike')
