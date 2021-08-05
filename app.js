@@ -20,3 +20,12 @@ app.get("/contacts", async (req, res) => {
 app.listen(port, () => {
     console.log(`Listening at http://localhost:${port}/contacts`)
 });
+
+app.post('/contacts', async(req, res) => {
+    await models.Contacts.create({
+        name: req.body.nameInput,
+        email: req.body.emailInput,
+        dofb: req.body.dobInput
+    })
+    res.redirect('/contacts')
+})

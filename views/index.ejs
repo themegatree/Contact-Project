@@ -1,11 +1,16 @@
 <div id="contact-info">
-
+    <%contacts.map((contact,index) => { %>
+        <p id ="contactName<%=index%>">Name: <%=contact.name%></p>
+        <p id ="contactEmail<%=index%>">Email: <%=contact.email%></p>
+        <p id ="contactDob<%=index%>">Date of Birth: <%=contact.dofb%></p>
+    <%})%>
 </div>
 
 <div id="input-area">
     <form action="/contacts" method="POST">
-        <input type="text" id="nameInput" placeholder="Name">
-        <input type="text" id="emailInput" placeholder="Email">
+        <input type="text" id="nameInput" placeholder="Name" name="nameInput">
+        <input type="text" id="emailInput" placeholder="Email" name="emailInput">
+        <input type="date" id="dobInput" value="2017-06-01" name="dobInput">
         <input type="Submit" id="contactAdd" value="Add">
     </form>
 </div>

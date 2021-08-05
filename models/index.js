@@ -1,18 +1,18 @@
-const { Sequelize, DataTypes } = require("sequelize/types");
+const { Sequelize, DataTypes } = require("sequelize");
 
 
 const sequelize = new Sequelize(
     process.env.DATABASE,
     process.env.DATABASE_USER,
     process.env.DATABASE_PASSWORD,
-    {dialect: "postgres"}
+    {dialect: "postgres",},
 );
 
 const models = {
-    Contacts: require("./contacts")(sequelize, DataTypes)
+    Contacts: require("./contacts")(sequelize, DataTypes),
 };
 
-modole.exports = {
+module.exports = {
     sequelize: sequelize,
     models: models
 };
