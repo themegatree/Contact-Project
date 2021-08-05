@@ -1,12 +1,10 @@
-const models = require("../../models")
-require('dotenv').config
-
 describe('Main Tests',() => {
+
     beforeEach(() => {
-        async ()=> {
-            await models.Contacts.destroy({truncate: true})
-        }
+        // cy.task('log', 'This will be output to the terminal')
+        cy.task("taskTruncateTables");
     })
+
     it('Adding a contact', () => {
         cy.visit('/contacts')
         cy.get('#nameInput').type('Mike')

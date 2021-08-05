@@ -17,10 +17,6 @@ app.get("/contacts", async (req, res) => {
     res.render("index",{contacts: contacts})
 })
 
-app.listen(port, () => {
-    console.log(`Listening at http://localhost:${port}/contacts`)
-});
-
 app.post('/contacts', async(req, res) => {
     await models.Contacts.create({
         name: req.body.nameInput,
@@ -29,3 +25,16 @@ app.post('/contacts', async(req, res) => {
     })
     res.redirect('/contacts')
 })
+
+app.delete("/contacts/:id", async(req, res) => {
+
+    await models.Contacts.destroy({
+        where: {id: req.params.id}
+    })
+
+    res.redirect("/contacts")
+})
+
+app.listen(port, () => {
+    console.log(`Listening at http://localhost:${port}/contacts`)
+});
