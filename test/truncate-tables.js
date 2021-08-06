@@ -1,4 +1,4 @@
-require("dotenv").config(s)
+require("dotenv").config()
 const { models } = require("../models")
 
 const truncateTables = async () => {
