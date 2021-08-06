@@ -14,7 +14,13 @@ app.use(express.urlencoded({extended: true}));
 
 app.get("/contacts", async (req, res) => {
     const contacts = await models.Contacts.findAll({order: ['id']});
-    res.render("index",{contacts: contacts})
+    const tags = await models.Tags.findAll({});
+    // const relations = await models.Relations.findAll({});
+    res.render("index",{
+        contacts: contacts,
+        tags: tags
+        // relations: relations
+    })
 })
 
 app.post('/contacts', async(req, res) => {
