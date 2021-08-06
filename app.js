@@ -13,7 +13,7 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({extended: true}));
 
 app.get("/contacts", async (req, res) => {
-    const contacts = await models.Contacts.findAll({});
+    const contacts = await models.Contacts.findAll({order: ['id']});
     res.render("index",{contacts: contacts})
 })
 
@@ -34,7 +34,7 @@ app.post("/contacts/edit/:id", async(req, res) => {
 })
 
 app.put("/contacts/:id", async(req, res) => {
-    console.log("Put")
+    console.log("id: " + req.params.id)
     await models.Contacts.update(
         {
             name: req.body.nameInput,
