@@ -27,9 +27,14 @@ app.post('/contacts', async(req, res) => {
 })
 
 app.post("/contacts/edit/:id", async(req, res) => {
-    app.locals.currentID = req.params.id; 
+    //const data = 
+    console.log( await models.Contacts.findAll({where:{id:req.params.id}}))
+    
     res.render('edit',{
-        id: req.params.id
+        id: req.params.id,
+        name: data.name,
+        email: data.email,
+        dofb: data.dofb
     })
 })
 
@@ -43,7 +48,7 @@ app.put("/contacts/:id", async(req, res) => {
         },{
 
         where:{
-            id:app.locals.currentID
+            id:req.params.id
         }
     })
     res.redirect("/contacts")
