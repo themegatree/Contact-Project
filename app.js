@@ -27,9 +27,9 @@ app.post('/contacts', async(req, res) => {
 })
 
 app.post("/contacts/edit/:id", async(req, res) => {
-    //const data = 
-    console.log( await models.Contacts.findAll({where:{id:req.params.id}}))
-    
+    let data = await models.Contacts.findAll({where:{id:req.params.id}})
+    data = data[0].dataValues
+    console.log(data.dofb)
     res.render('edit',{
         id: req.params.id,
         name: data.name,

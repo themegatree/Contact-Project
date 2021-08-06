@@ -3,8 +3,8 @@
 <div id="input-area">
     <form action="/contacts/<%=id%>?_method=PUT" method="POST">
         <input type="text" id="nameInput" placeholder="Name" name="nameInput" value="<%=name%>">
-        <input type="text" id="emailInput" placeholder="Email" name="emailInput">
-        <input type="date" id="dobInput" value="2017-06-01" name="dobInput">
+        <input type="text" id="emailInput" placeholder="Email" name="emailInput" value="<%=email%>">
+        <input type="date" id="dobInput" name="dobInput" value="<%=dofb%>">
         <input type="Submit" id="contactAdd" value="Edit">
     </form>
 </div>
