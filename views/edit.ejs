@@ -1,7 +1,7 @@
 <h1><%=id%></h1>
 
 <div id="input-area">
-    <form action="/contacts/?_PUT" method="POST">
+    <form action="/contacts/<%=id%>?_method=PUT" method="POST">
         <input type="text" id="nameInput" placeholder="Name" name="nameInput">
         <input type="text" id="emailInput" placeholder="Email" name="emailInput">
         <input type="date" id="dobInput" value="2017-06-01" name="dobInput">

@@ -27,14 +27,13 @@ app.post('/contacts', async(req, res) => {
 })
 
 app.post("/contacts/edit/:id", async(req, res) => {
-    console.log('Post')
     app.locals.currentID = req.params.id; 
     res.render('edit',{
         id: req.params.id
     })
 })
 
-app.put("/contacts", async(req, res) => {
+app.put("/contacts/:id", async(req, res) => {
     console.log("Put")
     await models.Contacts.update(
         {
